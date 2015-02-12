@@ -1,13 +1,13 @@
 <jsp:include page="template-top.jsp" />
 
-<%@ page import="databeans.Favorite" %>
+<%@ page import="databeans.Tweetlist" %>
 <p>
 	<table>
 <%
-	for (Favorite photo : (Favorite[])request.getAttribute("photoList")) {
+	for (Tweetlist list : (Tweetlist[])request.getAttribute("tweetslist")) {
 %>
 		<tr>
-			<td><a href="view.do?id=<%=photo.getId()%>"><%=photo.getCaption()%></a></td>
+			<td><%=list.getUserScreenName() %></td><td><%=list.getUserTweet() %></td>
 		</tr>
 <%
 		}

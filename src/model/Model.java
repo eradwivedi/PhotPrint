@@ -9,6 +9,7 @@ import org.genericdao.DAOException;
 public class Model {
 	private PhotoDAO photoDAO;
 	private UserDAO  userDAO;
+	private TweetlistDAO tweetlistDAO;
 
 	public Model(ServletConfig config) throws ServletException {
 		try {
@@ -18,6 +19,7 @@ public class Model {
 			ConnectionPool pool = new ConnectionPool(jdbcDriver, jdbcURL);
 			userDAO  = new UserDAO("user", pool);
 			photoDAO = new PhotoDAO("photo", pool);
+			tweetlistDAO = new TweetlistDAO("tweetlist", pool);
 		} catch (DAOException e) {
 			throw new ServletException(e);
 		}
@@ -25,4 +27,5 @@ public class Model {
 	
 	public PhotoDAO getPhotoDAO() { return photoDAO; }
 	public UserDAO  getUserDAO()  { return userDAO;  }
+	public TweetlistDAO  getTweetlistDAO()  { return tweetlistDAO;  }
 }
